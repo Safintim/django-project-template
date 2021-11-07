@@ -17,9 +17,9 @@ services:
   django_blog_api:
     image: {{cookiecutter.project_name}}
     build:
-      context: "server"
+      context: ./server
     env_file:
-       - "server"
+       - ./server/.env
     environment:
       <<: *db-config
     depends_on:
