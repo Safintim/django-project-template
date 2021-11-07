@@ -14,8 +14,8 @@ x-db-config: &db-config
   SECRET_KEY: secret
 
 services:
-  django_blog_api:
-    image: {{cookiecutter.project_name}}
+  api:
+    image: {{cookiecutter.project_name}}_api
     build:
       context: ./server
     env_file:
