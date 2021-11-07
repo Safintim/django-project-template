@@ -1,7 +1,7 @@
 version: "3.7"
 
 x-api-volumes: &api-volumes
-  - ./server:/app:cached
+  - ./{{cookiecutter.project_dir}}:/app:cached
   - ~/.bash_history:/root/.bash_history
 
 x-db-config: &db-config
@@ -17,9 +17,9 @@ services:
   django_blog_api:
     image: {{cookiecutter.project_name}}
     build:
-      context: ./server
+      context: "{{cookiecutter.project_dir}}"
     env_file:
-       - ./server/.env
+       - "{{cookiecutter.project_dir}}"
     environment:
       <<: *db-config
     depends_on:
